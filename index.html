@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Form</title>
+
+    <!-- Links -->
+    <link rel="icon" type="image/png" href="assets/img/Capture.PNG" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.13.0/dist/sweetalert2.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery.steps.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+
+    <!-- Content -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="app bg-white shadow-sm rounded-lg" id="app">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="text-center">Complete the Quotation</h3>
+                                <div class="text-center">
+                                    <img src="assets/img/motivation.svg" alt="motivation" title="motivation"
+                                        style="height: 80px; width: 80px" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <form id="wizard" action="#">
+                                    <div>
+                                        <h3>Compare</h3>
+                                        <section class="compare" id="compare">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <div class="driverInfo shadow-sm rounded-lg p-3 border"
+                                                        id="driverInfo">
+                                                        <h5 class="text-center">Driver Information</h5>
+                                                        <div class="driverInfo-data">
+                                                            <div class="form-group">
+                                                                <label for="exampleYODE">Years of Driving Experience
+                                                                </label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <button class="minus btn btn-success btn-sm"
+                                                                            type="button" id="minus"><i
+                                                                                class="fas fa-minus"></i></button>
+                                                                    </div>
+                                                                    <input readonly type="text"
+                                                                        class="years form-control text-center" value="0"
+                                                                        aria-label="Years" aria-describedby="Years"
+                                                                        id="years" name="years" />
+                                                                    <div class="input-group-append">
+                                                                        <button class="plus btn btn-success btn-sm"
+                                                                            type="button" id="plus"><i
+                                                                                class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleGenderSelect">Gender</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <label class="input-group-text"
+                                                                            for="genderSelect"><i
+                                                                                class="fas fa-mars"></i></label>
+                                                                    </div>
+                                                                    <select class="custom-select" id="genderSelect">
+                                                                        <option selected>Gender</option>
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleMaritalStatus">Marital Status</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <label class="input-group-text"
+                                                                            for="maritalStatus"><i
+                                                                                class="fas fa-venus-mars"></i></label>
+                                                                    </div>
+                                                                    <select class="custom-select" id="maritalStatus">
+                                                                        <option selected>Marital Status</option>
+                                                                        <option value="1">Single</option>
+                                                                        <option value="2">Married</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="update btn btn-success"
+                                                                id="update">Update <i
+                                                                    class="fas fa-sync-alt"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12 mt-3 mt-lg-0">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover border text-center mb-0">
+                                                            <thead class="thead-light">
+                                                                <tr>
+                                                                    <th scope="col">S/H</th>
+                                                                    <th scope="col">Providers</th>
+                                                                    <th scope="col" data-toggle="tooltip"
+                                                                        data-placement="top"
+                                                                        title="This is the indicative value of your vehicle model provided by insurer.">
+                                                                        Sum Insured</th>
+                                                                    <th scope="col">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion1"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion1"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top" title="Tune-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/13.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+                                                                                    Agent Name : Fatberry Insure Sdn Bhd
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="two-RM d-flex">
+                                                                            <div class="fRM">
+                                                                                <span style="font-size: 15px"> RM
+                                                                                    57,000.00 <i
+                                                                                        class="fas fa-exclamation-circle"
+                                                                                        data-toggle="tooltip"
+                                                                                        data-placement="top"
+                                                                                        title="Market Value"></i></span>
+                                                                            </div>
+                                                                            <div class="sRM pl-2">
+                                                                                <span style="font-size: 15px">RM
+                                                                                    871.94</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Buy
+                                                                            now</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion1">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Tune-Motor</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Up to
+                                                                                                200km <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Free
+                                                                                                Road Assistant
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Accident Assistance
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Change of punctured tire
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Out
+                                                                                                of petrol and more.
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion2"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion2"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="AmAssurance auto365 Comprehensive Plus">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/22.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+                                                                                    Agent Name : Keystone Risk Partners
+                                                                                    Sdn Bhd
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion2">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        AmAssurance auto365
+                                                                                        Comprehensive Plus
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Up to
+                                                                                                100km
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Roadside Repair include
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery Replacement
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Other
+                                                                                                minor repairs
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Sold
+                                                                                                at an exclusive discount
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Emergency petrol
+                                                                                                delivery
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> The
+                                                                                                insured will only cover
+                                                                                                labor cost
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion3"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion3"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="AmAssurance auto365 Comprehensive Premier">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/23.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+
+                                                                                    Agent Name : Keystone Risk Partners
+                                                                                    Sdn Bhd
+
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion3">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        AmAssurance auto365
+                                                                                        Comprehensive Premier</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Up to
+                                                                                                365KM
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Roadside Repair include
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery Replacement
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Other
+                                                                                                minor repairs
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Sold
+                                                                                                at an exclusive discount
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Emergency petrol
+                                                                                                delivery
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> The
+                                                                                                insured will only cover
+                                                                                                labor cost
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion4"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion4"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="Etiqa Takaful-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/19.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+
+                                                                                    Agent Name : AYCE Strong Consultancy
+                                                                                    & Services
+
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion4">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Etiqa Takaful-Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Free
+                                                                                                towing up to 200KM
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery replacement
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Tyre
+                                                                                                change
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Jump
+                                                                                                start services
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Fuel
+                                                                                                delivery
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion5"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion5"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top" title="Etiqa-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/16.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+
+                                                                                    Agent Name : Keystone Risk Partners
+                                                                                    Sdn Bhd
+
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion5">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Etiqa-Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Up to
+                                                                                                200km
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Free
+                                                                                                Road Assistant
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Accident Assistance
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Offering services such
+                                                                                                as change of punctured
+                                                                                                tire
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Out
+                                                                                                of petrol and more
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion6"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion6"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top" title="RHB-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/11.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+
+                                                                                    Agent Name : New Attention Sdn Bhd
+
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion6">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        RHB-Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Up to
+                                                                                                200km
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery replacement
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Tyre
+                                                                                                change
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Jump
+                                                                                                start services
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Fuel
+                                                                                                delivery
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion7"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion7"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="Takaful Malaysia Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/21.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+                                                                                    Agent Name : Fatfish Ventures Sdn
+                                                                                    Bhd
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion7">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Takaful Malaysia Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Free
+                                                                                                towing up to 50km
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Roadside Repair
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery Replacement and
+                                                                                                other minor repairs
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Emergency petrol
+                                                                                                delivery
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion8"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion8"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="Zurich Takaful-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/20.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+                                                                                    Agent Name : Fatfish Ventures Sdn
+                                                                                    Bhd
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm btn-sm">Get
+                                                                            Quote</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion8">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Zurich Takaful-Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Free
+                                                                                                towing for the first
+                                                                                                200KM
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Jump
+                                                                                                start
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery car replacement
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Replace your tires
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Refill empty tank
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="details collapsed btn btn-success btn-sm"
+                                                                            data-toggle="collapse"
+                                                                            data-target="#accordion9"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="accordion9"></button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="image-caption" data-toggle="tooltip"
+                                                                            data-placement="top" title="Zurich-Motor">
+                                                                            <div class="image">
+                                                                                <img src="assets/img/18.png" />
+                                                                            </div>
+                                                                            <div class="caption">
+                                                                                <span>
+
+                                                                                    Agent Name : Fatfish Ventures Sdn
+                                                                                    Bhd
+
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>Get a comparison quote in 30 minutes <i
+                                                                            class="fas fa-angle-double-right"></i></td>
+                                                                    <td>
+                                                                        <button type="button"
+                                                                            class="buyGet btn btn-success btn-sm">Get
+                                                                            Quote
+
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="trContent">
+                                                                    <td colspan="4" class="hiddenRow">
+                                                                        <div class="tdContent collapse" id="accordion9">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <h3
+                                                                                        class="text-left text-sm-center text-success">
+                                                                                        Zurich-Motor
+                                                                                    </h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <h5 class="text-success">Free towing
+                                                                                        24/7
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">Free
+                                                                                                towing for the first
+                                                                                                200KM
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6 mt-2 mt-sm-0">
+                                                                                    <h5 class="text-success">Road
+                                                                                        Assistant Highlight
+
+                                                                                    </h5>
+                                                                                    <div class="items">
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span">
+                                                                                                Battery replacement
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Tyre
+                                                                                                change
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Jump
+                                                                                                start services
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                        <div class="item">
+                                                                                            <h6 class="item-span"> Fuel
+                                                                                                delivery
+
+                                                                                                <i
+                                                                                                    class="fas fa-check text-success"></i>
+                                                                                            </h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <h3>Choose Add-ons</h3>
+                                        <section class="registration" id="registration">
+                                            <div class="innerContent text-center">
+                                                <div class="icon mb-2">
+                                                    <img src="assets/img/motivation.svg" alt="motivation"
+                                                        title="motivation" style="height: 80px; width: 80px" />
+                                                </div>
+                                                <h4>What's your vehicle registration number?</h4>
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-7 col-sm-9 mx-auto">
+                                                        <div class="form-group mb-0">
+                                                            <input type="text"
+                                                                class="form-control form-control-lg registrationNo custom-form-control custom-form-control-registration"
+                                                                name="registrationNo" id="registrationNo"
+                                                                aria-label="registration"
+                                                                aria-describedby="registration" placeholder="Car Number"
+                                                                minlength="4" maxlength="15" autocomplete="off">
+                                                            <small class="form-text text-press text-muted">The car
+                                                                number is between 4 and 15 chars <i
+                                                                    class="fas fa-exclamation-triangle"></i>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <h3>Fill Personal Detail</h3>
+                                        <section class="nricNumber" id="nricNumber">
+                                            <div class="innerContent text-center">
+                                                <div class="icon mb-2">
+                                                    <img src="assets/img/motivation.svg" alt="motivation"
+                                                        title="motivation" style="height: 80px; width: 80px" />
+                                                </div>
+                                                <h4>Waht's your NRIC number?</h4>
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-7 col-sm-9 mx-auto">
+                                                        <div class="form-group mb-0">
+                                                            <input type="text"
+                                                                class="form-control form-control-lg  custom-form-control custom-form-control-nric nricNumberNo"
+                                                                name="nricNumberNo" id="nricNumberNo"
+                                                                aria-label="nricNumber" aria-describedby="nricNumber"
+                                                                placeholder="NRIC Number" minlength="4" maxlength="15"
+                                                                autocomplete="off">
+                                                            <small class="form-text text-press text-muted">The NRIC
+                                                                number is between 4 and 15 chars <i
+                                                                    class="fas fa-exclamation-triangle"></i>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <h3>Pay</h3>
+                                        <section class="premium" id="premium">
+                                            <div class="innerContent text-center">
+                                                <div class="icon mb-2">
+                                                    <img src="assets/img/motivation.svg" alt="motivation"
+                                                        title="motivation" style="height: 80px; width: 80px" />
+                                                </div>
+                                                <h4>Getting your premium...</h4>
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-7 col-sm-9 mx-auto mx-auto">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                                                role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Content -->
+
+    <!-- Notification -->
+    <div class="notificationSuccess text-white shadow-lg p-3"></div>
+    <div class="notificationError text-white shadow-lg p-3"></div>
+    <!-- Notification -->
+
+    <!-- JS Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/jquery.steps.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.13.0/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <!-- JS Scripts -->
+
+</body>
+
+</html>
