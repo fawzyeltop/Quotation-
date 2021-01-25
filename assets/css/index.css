@@ -83,7 +83,7 @@ label {
 .driverInfo .driverInfo-data {
   margin-top: 12px;
 }
-.table {
+/* .table {
   font-size: 12px;
 }
 .table td {
@@ -120,6 +120,13 @@ label {
 }
 .details:not(.collapsed):after {
   content: '-';
+} */
+.provider-item {
+  padding: 15px;
+}
+
+.provider-item-image img {
+  width: 100px;
 }
 /*
   End Compare
